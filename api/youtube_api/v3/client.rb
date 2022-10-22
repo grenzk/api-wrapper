@@ -1,8 +1,8 @@
 require 'faraday'
 
-module Vultr
+module YouTube
   class Client
-    BASE_URL = 'https://api.vultr.com/v2/'
+    BASE_URL = 'https://www.googleapis.com/youtube/v3/'
 
     attr_reader :api_key, :adapter
 
@@ -22,7 +22,7 @@ module Vultr
     end
 
     def inspect
-      '#<Vultr::Client>'
+      '#<YouTube::Client>'
     end
   end
 end
