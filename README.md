@@ -27,6 +27,18 @@ client.connection.get(
 )
 ```
 
+## Create a playlist
+
+```ruby
+client
+  .connection
+  .post('playlists') do |req|
+    req.params['part'] = 'snippet,contentDetails'
+    req.params['key'] = client.api_key
+    req.body = { snippet: { title: 'My Playlist' } }.to_json
+  end
+```
+
 ## Retrieve information about a specific video
 
 ```ruby
