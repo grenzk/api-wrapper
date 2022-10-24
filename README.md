@@ -24,9 +24,7 @@ client.connection.get(
     mine: true,
     maxResults: 25,
     key: "#{client.api_key}"
-  },
-  # Access Token is required
-  { Authorization: "Bearer #{ENV['YOUTUBE_ACCESS_TOKEN']}" }
+  }
 )
 ```
 
