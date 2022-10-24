@@ -17,9 +17,9 @@ module YouTube
         Faraday.new do |conn|
           conn.url_prefix = BASE_URL
           conn.request :json
+          conn.request :authorization, 'Bearer', access_token
           conn.response :json, content_type: 'application/json'
           conn.adapter adapter
-          conn.request :authorization, 'Bearer', "#{access_token}"
         end
     end
 
