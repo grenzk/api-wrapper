@@ -4,11 +4,12 @@ module YouTube
   class Client
     BASE_URL = 'https://www.googleapis.com/youtube/v3/'
 
-    attr_reader :api_key, :adapter
+    attr_reader :api_key, :access_token, :adapter
 
-    def initialize(api_key:, adapter: Faraday.default_adapter)
+    def initialize(api_key:, access_token:, adapter: Faraday.default_adapter)
       @api_key = api_key
       @adapter = adapter
+      @access_token = access_token
     end
 
     def connection
@@ -18,6 +19,7 @@ module YouTube
           conn.request :json
           conn.response :json, content_type: 'application/json'
           conn.adapter adapter
+          conn.request :authorization, 'Bearer', "#{access_token}"
         end
     end
 
