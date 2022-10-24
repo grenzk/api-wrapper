@@ -1,6 +1,5 @@
 # YouTube API Wrapper
 
-
 - Get all your channel's playlists using YouTube's Data API in Ruby.
 - Get information about a specific YouTube video.
 
@@ -8,7 +7,11 @@
 
 ```ruby
 # Set a client with your own API key
-client = YouTube::Client.new(api_key: ENV['YOUTUBE_API_KEY'])
+client =
+  YouTube::Client.new(
+    api_key: ENV['YOUTUBE_API_KEY'],
+    access_token: ENV['YOUTUBE_ACCESS_TOKEN']
+  )
 ```
 
 ## List all your channel's playlists
