@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'dotenv'
 require 'json'
 require_relative 'api/youtube_api/v3/client'

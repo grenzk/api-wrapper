@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 require 'faraday'
 
 module YouTube
+  # API Wrapper
   class Client
     BASE_URL = 'https://www.googleapis.com/youtube/v3/'
 
