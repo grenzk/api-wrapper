@@ -39,3 +39,7 @@ client.connection.get(
   }
 )
 ```
+
+## Source
+
+YouTube API Reference (https://developers.google.com/youtube/v3/docs)
