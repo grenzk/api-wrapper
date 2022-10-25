@@ -5,12 +5,14 @@ Create, modify, or delete a playlist using YouTube Data API in Ruby.
 ## Installation
 
 Install these gems:
+
 ```ruby
 gem install faraday
 gem install json
 ```
 
 and require them in your file:
+
 ```ruby
 require 'faraday'
 require 'json'
@@ -101,6 +103,18 @@ client
       }
     }.to_json
   end
+```
+
+## Remove a video from your playlist
+
+```ruby
+client.connection.delete(
+  'playlistItems',
+  {
+    id: 'UExVYXFsUXlTbFUzdmo2STY2eXYyaGdOTWhKOEw3SFJadi41NkI0NEY2RDEwNTU3Q0M2',
+    key: client.api_key
+  }
+)
 ```
 
 ## Source

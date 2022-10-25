@@ -64,3 +64,11 @@ client
       }
     }.to_json
   end
+
+client.connection.delete(
+  'playlistItems',
+  {
+    id: 'UExVYXFsUXlTbFUzdmo2STY2eXYyaGdOTWhKOEw3SFJadi41NkI0NEY2RDEwNTU3Q0M2',
+    key: client.api_key
+  }
+)
