@@ -10,6 +10,12 @@ gem install faraday
 gem install json
 ```
 
+and require them in your file:
+```ruby
+require 'faraday'
+require 'json'
+```
+
 ## Usage
 
 ```ruby
@@ -74,6 +80,27 @@ client.connection.delete(
   'playlists',
   { id: 'PLUaqlQySlU3uYObrz81amkmoE46XG1Z89', key: client.api_key }
 )
+```
+
+## Add a video to your playlist
+
+```ruby
+# playlistId and resourceId must be specified
+client
+  .connection
+  .post('playlistItems') do |req|
+    req.params['part'] = 'snippet'
+    req.params['key'] = client.api_key
+    req.body = {
+      snippet: {
+        playlistId: 'PLUaqlQySlU3vj6I66yv2hgNMhJ8L7HRZv',
+        resourceId: {
+          kind: 'youtube#video',
+          videoId: 'N3oCS85HvpY'
+        }
+      }
+    }.to_json
+  end
 ```
 
 ## Source
