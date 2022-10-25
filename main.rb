@@ -6,12 +6,14 @@ require_relative 'api/youtube_api/v3/client'
 
 Dotenv.load('credentials.env')
 
+# Set a client
 client =
   YouTube::Client.new(
     api_key: ENV['YOUTUBE_API_KEY'],
     access_token: ENV['YOUTUBE_ACCESS_TOKEN']
   )
 
+# List all playlists of a specified channel
 client.connection.get(
   'playlists',
   {
@@ -22,6 +24,7 @@ client.connection.get(
   }
 )
 
+# Create a new playlist
 client
   .connection
   .post('playlists') do |req|
@@ -30,6 +33,7 @@ client
     req.body = { snippet: { title: 'My Playlist' } }.to_json
   end
 
+# Update a playlist
 client
   .connection
   .put('playlists') do |req|
@@ -44,11 +48,13 @@ client
     }.to_json
   end
 
+# Delete a playlist
 client.connection.delete(
   'playlists',
   { id: 'PLUaqlQySlU3uYObrz81amkmoE46XG1Z89', key: client.api_key }
 )
 
+# Add a video to a playlist
 client
   .connection
   .post('playlistItems') do |req|
@@ -65,6 +71,7 @@ client
     }.to_json
   end
 
+# Delete a video from a playlist
 client.connection.delete(
   'playlistItems',
   {
