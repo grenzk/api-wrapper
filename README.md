@@ -1,7 +1,14 @@
 # YouTube API Wrapper
 
-- Get all your channel's playlists using YouTube's Data API in Ruby.
-- Get information about a specific YouTube video.
+- Create, modify, or delete a playlist using the YouTube API wrapper in Ruby.
+
+## Installation
+
+Install these gems:
+```ruby
+gem install faraday
+gem install json
+```
 
 ## Usage
 
@@ -59,16 +66,13 @@ client
   end
 ```
 
-## Retrieve information about a specific video
+## Delete a playlist
 
 ```ruby
-client.connection.get(
-  'videos',
-  {
-    id: '7lCDEYXw3mM',
-    key: "#{client.api_key}",
-    part: 'snippet,contentDetails,statistics,status'
-  }
+# id must be specified
+client.connection.delete(
+  'playlists',
+  { id: 'PLUaqlQySlU3uYObrz81amkmoE46XG1Z89', key: client.api_key }
 )
 ```
 
