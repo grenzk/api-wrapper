@@ -1,6 +1,6 @@
 # YouTube API Wrapper
 
-- Create, modify, or delete a playlist using the YouTube API wrapper in Ruby.
+Create, modify, or delete a playlist using YouTube Data API in Ruby.
 
 ## Installation
 
