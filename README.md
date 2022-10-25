@@ -6,7 +6,7 @@
 ## Usage
 
 ```ruby
-# Set a client with your own API key
+# Set a client with your own api key and access token
 client =
   YouTube::Client.new(
     api_key: ENV['YOUTUBE_API_KEY'],
@@ -37,6 +37,25 @@ client
     req.params['part'] = 'snippet,contentDetails'
     req.params['key'] = client.api_key
     req.body = { snippet: { title: 'My Playlist' } }.to_json
+  end
+```
+
+## Update a playlist
+
+```ruby
+# The example code modifies a playlist's title and description
+client
+  .connection
+  .put('playlists') do |req|
+    req.params['part'] = 'snippet,contentDetails'
+    req.params['key'] = client.api_key
+    req.body = {
+      id: 'PLUaqlQySlU3uYObrz81amkmoE46XG1Z89',
+      snippet: {
+        title: 'New Playlist',
+        description: 'This is a new playlist.'
+      }
+    }.to_json
   end
 ```
 
