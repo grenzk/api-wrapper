@@ -38,7 +38,7 @@ client.connection.get(
     part: 'snippet,contentDetails',
     mine: true,
     maxResults: 25,
-    key: "#{client.api_key}"
+    key: client.api_key
   }
 )
 ```
